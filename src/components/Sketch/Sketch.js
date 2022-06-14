@@ -75,13 +75,13 @@ const Sketch = ({ zorbs, zoraEvents = { length: 500 } }) => {
 		const x = i % N * K - 1;
 		const y = i / N * K - 1;
 		const s = _ => {
-			return Math.sin(j * p5.TAU / speedWarp + 8 * Math.sqrt(density + Math.sin(y * spacingY) ** 2 + (y + Math.sin(x * spacingX)) ** 2));
+			return Math.sin(j * p5.TAU / speedWarp + 8 * Math.sqrt(density + Math.sin(y * spacingY) ** 2 + (y + Math.sin(x * spacingX)) ** 2)); //see read me for expression
 		}
 		const d = _ => {
 			return p5.dist(0, 0, 0, x, y, s / 8 + 0.5)
 		}
 	
-		p5.circle(zorbArray[zorbIndex],x / d * N + N, y / d * N + N, zorbRadius/d, zorbRadius/d);
+		p5.image(zorbArray[zorbIndex],x / d * N + N, y / d * N + N, zorbRadius/d, zorbRadius/d);
 	}
 
 	return <BaseSketch setup={setup} draw={draw} preload={preload} />
